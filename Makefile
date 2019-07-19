@@ -1,8 +1,11 @@
 IMG=rightmesh/ubuntu-openjdk
 
-.PHONY: all bionic xenial
+.PHONY: all bionic xenial disco
 
-all: bionic xenial
+all: bionic xenial disco
+
+disco: disco/Dockerfile
+	@docker build -t $(IMG):19.04 disco/ 1>/dev/null
 
 bionic: bionic/Dockerfile
 	@docker build -t $(IMG):18.04 bionic/ 1>/dev/null
